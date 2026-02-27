@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — PDFusion</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #020418;
+    --surface: #06094a;
+    --surface2: #080c5e;
+    --border: #1a1f8a;
+    --accent: #4f6ef7;
+    --accent2: #93aaff;
+    --text: #e8eaff;
+    --muted: #6a74b0;
+    --light: #b0b8e8;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  .hero {
+    position: relative;
+    padding: 80px 40px 60px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    background: radial-gradient(ellipse 70% 60% at 60% 0%, rgba(79,110,247,0.18) 0%, transparent 70%);
+  }
+
+  .hero-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(79,110,247,0.12);
+    border: 1px solid rgba(79,110,247,0.3);
+    color: var(--accent2);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 6vw, 58px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero h1 span {
+    -webkit-text-stroke: 1px var(--accent);
+    color: transparent;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+
+  .meta-item { display: flex; flex-direction: column; gap: 2px; }
+
+  .meta-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  .meta-value { font-size: 14px; color: var(--light); font-weight: 500; }
+
+  .container { max-width: 780px; margin: 0 auto; padding: 0 40px 80px; }
+
+  .promise {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 48px 0;
+  }
+
+  .promise-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+
+  .promise-card:hover { border-color: var(--accent); }
+  .promise-icon { font-size: 28px; margin-bottom: 12px; display: block; }
+  .promise-card h3 { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+  .promise-card p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+  .section {
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .section:hover { border-color: rgba(79,110,247,0.5); }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 28px;
+    cursor: pointer;
+    user-select: none;
+    background: var(--surface);
+  }
+
+  .section-num {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: rgba(79,110,247,0.15);
+    border: 1px solid rgba(79,110,247,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent2);
+    flex-shrink: 0;
+  }
+
+  .section-title { font-size: 16px; font-weight: 500; color: var(--text); flex: 1; }
+  .section-arrow { color: var(--muted); font-size: 14px; transition: transform 0.3s; }
+  .section.open .section-arrow { transform: rotate(180deg); }
+
+  .section-body {
+    display: none;
+    padding: 0 28px 28px;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+  }
+
+  .section.open .section-body { display: block; }
+
+  .section-body p, .section-body li { font-size: 15px; color: var(--light); margin-top: 16px; }
+  .section-body ul { list-style: none; padding: 0; }
+  .section-body ul li { padding-left: 20px; position: relative; }
+  .section-body ul li::before { content: '›'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+  .section-body h4 {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent2);
+    margin-top: 24px;
+    margin-bottom: 0;
+  }
+
+  .perm-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 14px; }
+
+  .perm-table th {
+    text-align: left;
+    padding: 10px 16px;
+    background: var(--surface2);
+    color: var(--muted);
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+
+  .perm-table td { padding: 12px 16px; border-top: 1px solid var(--border); color: var(--light); vertical-align: top; }
+  .perm-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .perm-name { font-weight: 500; color: var(--text); white-space: nowrap; }
+
+  .highlight {
+    background: rgba(79,110,247,0.08);
+    border: 1px solid rgba(79,110,247,0.22);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--light);
+  }
+
+  .highlight strong { color: var(--accent2); font-weight: 500; }
+
+  .on-device {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(50,200,100,0.1);
+    border: 1px solid rgba(50,200,100,0.25);
+    color: #6fdd9e;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 16px;
+  }
+
+  a { color: var(--accent2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .contact-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .contact-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 8px; }
+  .contact-card p { color: var(--muted); font-size: 14px; margin-top: 8px; }
+
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    background: var(--accent);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .contact-btn:hover { background: #3a56d4; transform: translateY(-1px); text-decoration: none; }
+
+  .footer {
+    text-align: center;
+    padding: 32px 40px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 48px 24px 40px; }
+    .container { padding: 0 24px 60px; }
+    .promise { grid-template-columns: 1fr 1fr; }
+    .hero-meta { gap: 20px; }
+    .section-header { padding: 20px; }
+    .section-body { padding: 0 20px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="badge">Privacy First</div>
+    <h1>Your documents.<br><span>Your device.</span><br>Always.</h1>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="meta-label">App</span>
+        <span class="meta-value">PDFusion</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Effective Date</span>
+        <span class="meta-value">February 23, 2026</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Contact</span>
+        <span class="meta-value"><a href="mailto:your@email.com">your@email.com</a></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="promise">
+    <div class="promise-card">
+      <span class="promise-icon">🔒</span>
+      <h3>Zero Data Collection</h3>
+      <p>We never collect personal info or document content</p>
+    </div>
+    <div class="promise-card">
+      <span class="promise-icon">📱</span>
+      <h3>On-Device Only</h3>
+      <p>All processing stays on your device, always</p>
+    </div>
+    <div class="promise-card">
+      <span class="promise-icon">👁️</span>
+      <h3>Full Transparency</h3>
+      <p>We clearly list every permission we request</p>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-num">1</div>
+      <div class="section-title">Overview</div>
+      <div class="section-arrow">▼</div>
+    </div>
+    <div class="section-body">
+      <p>Your privacy is critically important to us. PDFusion is designed with a privacy-first approach. We do not collect, store, or transmit your personal data or documents to any external server.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-num">2</div>
+      <div class="section-title">Information We Do NOT Collect</div>
+      <div class="section-arrow">▼</div>
+    </div>
+    <div class="section-body">
+      <p>PDFusion never collects:</p>
+      <ul>
+        <li>Your name, email address, or personal details</li>
+        <li>Your documents, PDFs, or scanned files</li>
+        <li>Your device location</li>
+        <li>Your contacts or call logs</li>
+        <li>Any usage analytics or behavioral data (unless stated below)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-num">3</div>
+      <div class="section-title">Information We May Collect</div>
+      <div class="section-arrow">▼</div>
+    </div>
+    <div class="section-body">
+      <h4>3.1 Crash Reports (Optional)</h4>
+      <p>If enabled, anonymous crash reports may be collected via third-party services (e.g., Firebase Crashlytics) to help us improve app stability. These reports do not contain personal data or document content.</p>
+      <h4>3.2 Anonymous Analytics (Optional)</h4>
+      <p>We may collect anonymous, aggregated usage statistics (e.g., which features are most used) to improve the app experience. No personally identifiable information is included.</p>
+      <div class="highlight"><strong>You're in control.</strong> You can opt out of crash reporting and analytics at any time in app settings.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-num">4</div>
+      <div class="section-title">Document &amp; File Processing</div>
+      <div class="section-arrow">▼</div>
+    </div>
+    <div class="section-body">
+      <p>All document processing — including merging, splitting, scanning, and converting — happens entirely on your device. Your files are never uploaded to our servers. We have zero access to your documents.</p>
+      <div class="on-device">✓ 100% On-Device Processing — No uploads, ever</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-num">5</div>
+      <div class="section-title">Permissions Used</div>
+      <div class="section-arrow">▼</div>
+    </div>
+    <div class="section-body">
+      <p>PDFusion may request only the permissions strictly necessary for its functionality:</p>
+      <table class="perm-table">
+        <thead>
+          <tr><th>Permission</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="perm-name">📂 Storage / Files</span></td>
+            <td>Read and save PDF and image files on your device</td>
+          </tr>
+          <tr>
+            <td><span class="perm-name">📷 Camera</span></td>
+            <td>Scan physical documents using your camera</td>
+          </tr>
+          <tr>
+            <td><span class="perm-name">🔔 Notifications</span></td>
+            <td>Notify you when a task (e.g., merge) is complete</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-num">6</div>
+      <div class="section-title">Third-Party Services</div>
+      <div class="section-arrow">▼</div>
+    </div>
+    <div class="section-body">
+      <p>If you choose to use optional integrations (e.g., Google Drive), those services may collect data according to their own privacy policies. We encourage you to review:</p>
+      <ul>
+        <li><a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy ↗</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-num">7</div>
+      <div class="section-title">Data Security</div>
+      <div class="section-arrow">▼</div>
+    </div>
+    <div class="section-body">
+      <p>Since all processing is on-device and no data is transmitted to our servers, your documents remain fully under your control. We recommend keeping your device secure with a screen lock and keeping the app updated.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-num">8</div>
+      <div class="section-title">Children's Privacy</div>
+      <div class="section-arrow">▼</div>
+    </div>
+    <div class="section-body">
+      <p>PDFusion is not directed at children under the age of 13. We do not knowingly collect any personal information from children. If you believe a child has provided personal information, please contact us and we will take steps to delete it.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-num">9</div>
+      <div class="section-title">Changes to This Policy</div>
+      <div class="section-arrow">▼</div>
+    </div>
+    <div class="section-body">
+      <p>We may update this Privacy Policy from time to time. We will notify users of any significant changes through app updates or in-app notifications. Continued use of the app after updates constitutes acceptance of the revised policy.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-num">10</div>
+      <div class="section-title">Your Rights</div>
+      <div class="section-arrow">▼</div>
+    </div>
+    <div class="section-body">
+      <p>Depending on your location, you may have the right to:</p>
+      <ul>
+        <li>Access any data we hold about you</li>
+        <li>Request deletion of your data</li>
+        <li>Opt out of analytics or crash reporting</li>
+      </ul>
+      <p>To exercise these rights, contact us at the email below.</p>
+    </div>
+  </div>
+
+  <div class="contact-card">
+    <h3>Questions or Concerns?</h3>
+    <p>We're here to help. Reach out anytime and we'll respond promptly.</p>
+    <a href="mailto:your@email.com" class="contact-btn">📧 your@email.com</a>
+  </div>
+
+</div>
+
+<div class="footer">
+  © 2026 PDFusion · Privacy Policy · Effective February 23, 2026
+</div>
+
+<script>
+  function toggleSection(header) {
+    var section = header.parentElement;
+    if (section.classList.contains('open')) {
+      section.classList.remove('open');
+    } else {
+      section.classList.add('open');
+    }
+  }
+</script>
+
+</body>
+</html>

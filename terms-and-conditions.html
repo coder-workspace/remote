@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms &amp; Conditions — PDFusion</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #020418;
+    --surface: #06094a;
+    --surface2: #080c5e;
+    --border: #1a1f8a;
+    --accent: #4f6ef7;
+    --accent2: #93aaff;
+    --text: #e8eaff;
+    --muted: #6a74b0;
+    --light: #b0b8e8;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  .hero {
+    position: relative;
+    padding: 80px 40px 60px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    background: radial-gradient(ellipse 70% 60% at 60% 0%, rgba(79,110,247,0.18) 0%, transparent 70%);
+  }
+
+  .hero-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(79,110,247,0.12);
+    border: 1px solid rgba(79,110,247,0.3);
+    color: var(--accent2);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 6vw, 58px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero h1 span {
+    -webkit-text-stroke: 1px var(--accent);
+    color: transparent;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+
+  .meta-item { display: flex; flex-direction: column; gap: 2px; }
+
+  .meta-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  .meta-value { font-size: 14px; color: var(--light); font-weight: 500; }
+
+  .container { max-width: 780px; margin: 0 auto; padding: 0 40px 80px; }
+
+  .promise {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 48px 0;
+  }
+
+  .promise-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+
+  .promise-card:hover { border-color: var(--accent); }
+  .promise-icon { font-size: 28px; margin-bottom: 12px; display: block; }
+  .promise-card h3 { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
+  .promise-card p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+  .section {
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .section:hover { border-color: rgba(79,110,247,0.5); }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 28px;
+    cursor: pointer;
+    user-select: none;
+    background: var(--surface);
+  }
+
+  .section-num {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: rgba(79,110,247,0.15);
+    border: 1px solid rgba(79,110,247,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent2);
+    flex-shrink: 0;
+  }
+
+  .section-title { font-size: 16px; font-weight: 500; color: var(--text); flex: 1; }
+  .section-arrow { color: var(--muted); font-size: 14px; transition: transform 0.3s; }
+  .section.open .section-arrow { transform: rotate(180deg); }
+
+  .section-body {
+    display: none;
+    padding: 0 28px 28px;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+  }
+
+  .section.open .section-body { display: block; }
+
+  .section-body p, .section-body li { font-size: 15px; color: var(--light); margin-top: 16px; }
+  .section-body ul { list-style: none; padding: 0; }
+  .section-body ul li { padding-left: 20px; position: relative; }
+  .section-body ul li::before { content: '›'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+  .section-body h4 {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent2);
+    margin-top: 24px;
+    margin-bottom: 0;
+  }
+
+  .highlight {
+    background: rgba(79,110,247,0.08);
+    border: 1px solid rgba(79,110,247,0.22);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--light);
+  }
+
+  .highlight strong { color: var(--accent2); font-weight: 500; }
+
+  .warning {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,180,50,0.08);
+    border: 1px solid rgba(255,180,50,0.2);
+    color: #ffd580;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 16px;
+  }
+
+  a { color: var(--accent2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .contact-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .contact-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 8px; }
+  .contact-card p { color: var(--muted); font-size: 14px; margin-top: 8px; }
+
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    background: var(--accent);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .contact-btn:hover { background: #3a56d4; transform: translateY(-1px); text-decoration: none; }
+
+  .footer {
+    text-align: center;
+    padding: 32px 40px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 48px 24px 40px; }
+    .container { padding: 0 24px 60px; }
+    .promise { grid-template-columns: 1fr 1fr; }
+    .hero-meta { gap: 20px; }
+    .section-header { padding: 20px; }
+    .section-body { padding: 0 20px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="badge">Legal Agreement</div>
+    <h1>Fair terms,<br><span>clearly stated.</span></h1>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="meta-label">App</span>
+        <span class="meta-value">PDFusion</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Effective Date</span>
+        <span class="meta-value">February 23, 2026</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Contact</span>
+        <span class="meta-value"><a href="mailto:your@email.com">your@email.com</a></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="promise">
+    <div class="promise-card">
+      <span class="promise-icon">📄</span>
+      <h3>Offline First</h3>
+      <p>No account or internet needed for core features</p>
+    </div>
+    <div class="promise-card">
+      <span class="promise-icon">⚖️</span>
+      <h3>Fair Use</h3>
+      <p>Personal, non-commercial use license granted</p>
+    </div>
+    <div class="promise-card">
+      <span class="promise-icon">🛡️</span>
+      <h3>Your Files</h3>
+      <p>You remain responsible for your own documents</p>
+    </div>
+  </div>
+
+  <div class="section open">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-num">1</div>
+      <div class="section-title">Acceptance of Terms</div>
+      <div class="section-arrow">▼</div>
+    </div>
+    <div class="section-body">
+      <p>By downloading, installing, or using PDFusion, you agree to be bound by these Terms &amp; Conditions. If you do not agree, please do not use the app.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-num">2</div>
+      <div class="section-title">Description of Service</div>
+      <div class="section-arrow">▼</div>
+    </div>
+    <div class="section-body">
+      <p>PDFusion is a mobile application that allows users to merge, split, convert, scan, and manage PDF documents. The app operates fully offline — no account or internet connection is required for core functionality.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-num">3</div>
+      <div class="section-title">License</div>
+      <div class="section-arrow">▼</div>
+    </div>
+    <div class="section-body">
+      <p>We grant you a limited, non-exclusive, non-transferable, revocable license to use PDFusion for personal, non-commercial purposes strictly in accordance with these Terms.</p>
+      <p>You may not:</p>
+      <ul>
+        <li>Copy, modify, or distribute the app or its content</li>
+        <li>Reverse engineer or attempt to extract the source code</li>
+        <li>Use the app for any unlawful or unauthorized purpose</li>
+        <li>Remove any copyright or proprietary notices</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-num">4</div>
+      <div class="section-title">User Responsibilities</div>
+      <div class="section-arrow">▼</div>
+    </div>
+    <div class="section-body">
+      <p>You are solely responsible for:</p>
+      <ul>
+        <li>The documents and files you process using PDFusion</li>
+        <li>Ensuring you have the legal right to access, edit, and share any documents used within the app</li>
+        <li>Keeping your device secure</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-num">5</div>
+      <div class="section-title">Intellectual Property</div>
+      <div class="section-arrow">▼</div>
+    </div>
+    <div class="section-body">
+      <p>All content, design, code, graphics, and branding within PDFusion — including the name "PDFusion" and its logo — are the intellectual property of the developer. All rights reserved.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-num">6</div>
+      <div class="section-title">Third-Party Services</div>
+      <div class="section-arrow">▼</div>
+    </div>
+    <div class="section-body">
+      <p>PDFusion may integrate with third-party services (e.g., Google Drive, cloud storage) for file access and sharing. Use of these services is governed by their respective terms and privacy policies. We are not responsible for third-party content or services.</p>
+      <div class="highlight"><strong>Heads up.</strong> When using integrations like Google Drive, their privacy policies and terms apply independently of ours.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-num">7</div>
+      <div class="section-title">Disclaimer of Warranties</div>
+      <div class="section-arrow">▼</div>
+    </div>
+    <div class="section-body">
+      <p>PDFusion is provided "as is" without warranties of any kind, either express or implied. We do not warrant that:</p>
+      <ul>
+        <li>The app will be error-free or uninterrupted</li>
+        <li>Results from using the app will be accurate or reliable</li>
+        <li>Any defects will be corrected</li>
+      </ul>
+      <div class="warning">⚠️ Use at your own discretion — always keep backups of important documents</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-num">8</div>
+      <div class="section-title">Limitation of Liability</div>
+      <div class="section-arrow">▼</div>
+    </div>
+    <div class="section-body">
+      <p>To the fullest extent permitted by law, the developer shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of or inability to use PDFusion, including but not limited to loss of data or documents.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-num">9</div>
+      <div class="section-title">Changes to Terms</div>
+      <div class="section-arrow">▼</div>
+    </div>
+    <div class="section-body">
+      <p>We reserve the right to update these Terms at any time. Continued use of the app after changes constitutes your acceptance of the revised Terms. We will notify users of significant changes via app updates.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-num">10</div>
+      <div class="section-title">Termination</div>
+      <div class="section-arrow">▼</div>
+    </div>
+    <div class="section-body">
+      <p>We reserve the right to terminate or suspend access to PDFusion at any time, without notice, for conduct that violates these Terms or is harmful to other users or the developer.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-num">11</div>
+      <div class="section-title">Governing Law</div>
+      <div class="section-arrow">▼</div>
+    </div>
+    <div class="section-body">
+      <p>These Terms shall be governed by and construed in accordance with the laws of [Your Country / State], without regard to its conflict of law provisions.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-num">12</div>
+      <div class="section-title">Contact Us</div>
+      <div class="section-arrow">▼</div>
+    </div>
+    <div class="section-body">
+      <p>For questions about these Terms, reach out to us at <a href="mailto:your@email.com">your@email.com</a> and we'll be happy to help.</p>
+    </div>
+  </div>
+
+  <div class="contact-card">
+    <h3>Questions about these Terms?</h3>
+    <p>We're here to help. Reach out anytime and we'll respond promptly.</p>
+    <a href="mailto:your@email.com" class="contact-btn">📧 your@email.com</a>
+  </div>
+
+</div>
+
+<div class="footer">
+  © 2026 PDFusion · Terms &amp; Conditions · Effective February 23, 2026
+</div>
+
+<script>
+  function toggleSection(header) {
+    var section = header.parentElement;
+    if (section.classList.contains('open')) {
+      section.classList.remove('open');
+    } else {
+      section.classList.add('open');
+    }
+  }
+</script>
+
+</body>
+</html>
