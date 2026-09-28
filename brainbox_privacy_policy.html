@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainBox: Offline Puzzle Games - Privacy Policy</title>
+    <link rel="icon" type="image/svg+xml"
+          href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxwYXRoIGQ9Ik0gMTYwIDM0NSBDIDE2OCAyODAgMTg1IDE4MCAyMTYgMTI1IEMgMjMyIDk2IDI1MiA4MiAyNjggOTYgQyAyODYgMTEyIDI4NCAxNTAgMjY4IDE5NSBDIDI1MCAyNDIgMjE1IDI2OCAxODAgMjc4IEMgMjM1IDI2MCAyOTggMjYyIDM0MiAyOTIgQyAzODIgMzIwIDM4OCAzNjggMzY2IDQwOCBDIDMzOCA0NTggMjYwIDQ1OCAxOTUgNDM1IEMgMTcwIDQyNCAxNTIgNDAwIDE2MCAzNjgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZCQkYyNCIgc3Ryb2tlLXdpZHRoPSI0NCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPg==">
+    <style>
+        :root{
+          --bg:#0B0F19;
+          --primary:#F59E0B;
+          --primary-glow:#FBBF24;
+          --secondary:#6366F1;
+          --tertiary:#1E293B;
+          --surface:#161E2E;
+          --surface-elevated:#1F293D;
+          --on-primary:#000000;
+          --on-bg:#F8FAFC;
+          --on-surface:#F8FAFC;
+          --muted:#94A3B8;
+          --border:#243048;
+          --highlight:#2A1D0B;
+          --highlight-border:#D97706;
+          --cyan:#06B6D4;
+          --pink:#EC4899;
+          --green:#22C55E;
+        }
+
+        *{box-sizing:border-box;}
+        html,body{margin:0;padding:0;}
+
+        body{
+          background:var(--bg);
+          color:var(--on-bg);
+          font-family:"Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+          line-height:1.65;
+          -webkit-font-smoothing:antialiased;
+        }
+
+        a{color:var(--primary); text-decoration:none; transition:color 0.2s ease;}
+        a:hover{color:var(--primary-glow); text-decoration:underline;}
+        a:focus-visible, button:focus-visible{outline:3px solid var(--secondary); outline-offset:2px;}
+
+        .wrap{
+          max-width:860px;
+          margin:0 auto;
+          padding:0 24px 80px;
+        }
+
+        /* Header */
+        header.top{
+          background:linear-gradient(180deg, rgba(30, 41, 59, 0.85) 0%, var(--bg) 100%);
+          border-bottom:1px solid var(--border);
+          backdrop-filter:blur(8px);
+        }
+
+        .top-inner{
+          max-width:860px;
+          margin:0 auto;
+          padding:32px 24px 24px;
+          display:flex;
+          align-items:center;
+          gap:18px;
+        }
+
+        .logo-badge{
+          width:60px;
+          height:60px;
+          border-radius:16px;
+          overflow:hidden;
+          flex-shrink:0;
+          background:#000000;
+          border:1.5px solid var(--border);
+          box-shadow:0 4px 18px rgba(245, 158, 11, 0.2);
+          display:flex;
+          align-items:center;
+          justify-content:center;
+        }
+        .logo-badge img{
+          width:100%;
+          height:100%;
+          object-fit:cover;
+          display:block;
+        }
+        .logo-fallback{
+          font-family:cursive, "Brush Script MT", sans-serif;
+          font-size:38px;
+          font-weight:bold;
+          color:#F59E0B;
+          user-select:none;
+        }
+
+        .brand-text .app-name{
+          font-size:1.45rem;
+          font-weight:800;
+          color:var(--on-bg);
+          letter-spacing:-0.01em;
+        }
+        .brand-text .doc-title{
+          font-size:0.92rem;
+          color:var(--primary);
+          font-weight:600;
+          margin-top:2px;
+        }
+
+        .meta-line{
+          max-width:860px;
+          margin:0 auto;
+          padding:0 24px 24px;
+          font-size:0.88rem;
+          color:var(--muted);
+        }
+
+        /* Layout */
+        main{padding-top:32px;}
+
+        h1{font-size:2rem; margin:0 0 10px; font-weight:800;}
+        h2{
+          font-size:1.32rem;
+          margin:42px 0 16px;
+          color:var(--on-bg);
+          border-left:4px solid var(--primary);
+          padding-left:14px;
+          font-weight:700;
+        }
+        h3{font-size:1.08rem; margin:22px 0 8px; color:var(--on-bg); font-weight:700;}
+        p{margin:0 0 14px;}
+        ul, ol{margin:0 0 14px; padding-left:22px;}
+        li{margin-bottom:6px;}
+
+        .lede{
+          font-size:1.06rem;
+          color:var(--muted);
+          line-height:1.7;
+        }
+
+        .card{
+          background:var(--surface);
+          border:1px solid var(--border);
+          border-radius:16px;
+          padding:24px 26px;
+          margin:20px 0;
+        }
+
+        .toc{
+          background:var(--surface);
+          border:1px solid var(--border);
+          border-radius:16px;
+          padding:22px 26px;
+          margin:28px 0 10px;
+        }
+        .toc h2{margin-top:0; border-left:4px solid var(--secondary); padding-left:12px;}
+        .toc ol{margin:0; padding-left:22px;}
+        .toc li{margin-bottom:8px;}
+        .toc a{color:var(--on-bg); font-weight:500;}
+        .toc a:hover{color:var(--primary);}
+
+        .note{
+          background:var(--surface-elevated);
+          border-left:4px solid var(--primary);
+          border-radius:10px;
+          padding:16px 20px;
+          margin:20px 0;
+          font-size:0.95rem;
+          color:var(--muted);
+        }
+        .note strong{color:var(--on-bg);}
+
+        table{
+          width:100%;
+          border-collapse:collapse;
+          margin:16px 0 24px;
+          font-size:0.94rem;
+        }
+        th, td{
+          text-align:left;
+          padding:12px 14px;
+          border-bottom:1px solid var(--border);
+          vertical-align:top;
+        }
+        th{
+          background:var(--surface-elevated);
+          color:var(--on-bg);
+          font-weight:700;
+        }
+        tr:last-child td{border-bottom:none;}
+
+        footer{
+          border-top:1px solid var(--border);
+          margin-top:54px;
+          padding-top:28px;
+          font-size:0.88rem;
+          color:var(--muted);
+          text-align:center;
+        }
+
+        .back-top{
+          display:inline-block;
+          margin-top:36px;
+          font-size:0.88rem;
+          color:var(--primary);
+          font-weight:600;
+        }
+
+        @media (max-width:640px){
+          .top-inner{padding:24px 18px 20px; gap:14px;}
+          .logo-badge{width:50px;height:50px;border-radius:13px;}
+          h1{font-size:1.65rem;}
+          h2{font-size:1.18rem;}
+          .wrap{padding:0 18px 60px;}
+          .card, .toc{padding:20px 18px;}
+        }
+
+        html{scroll-behavior:smooth;}
+    </style>
+</head>
+<body>
+
+<header class="top">
+    <div class="top-inner">
+        <div class="logo-badge">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxwYXRoIGQ9Ik0gMTYwIDM0NSBDIDE2OCAyODAgMTg1IDE4MCAyMTYgMTI1IEMgMjMyIDk2IDI1MiA4MiAyNjggOTYgQyAyODYgMTEyIDI4NCAxNTAgMjY4IDE5NSBDIDI1MCAyNDIgMjE1IDI2OCAxODAgMjc4IEMgMjM1IDI2MCAyOTggMjYyIDM0MiAyOTIgQyAzODIgMzIwIDM4OCAzNjggMzY2IDQwOCBDIDMzOCA0NTggMjYwIDQ1OCAxOTUgNDM1IEMgMTcwIDQyNCAxNTIgNDAwIDE2MCAzNjgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZCQkYyNCIgc3Ryb2tlLXdpZHRoPSI0NCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPg=="
+                 alt="BrainBox Logo">
+        </div>
+        <div class="brand-text">
+            <div class="app-name">BrainBox</div>
+            <div class="doc-title">Privacy Policy</div>
+        </div>
+    </div>
+    <div class="meta-line">
+        Effective date: <strong>September 28, 2026</strong> &nbsp;·&nbsp; Last updated: <strong>September 28, 2026</strong>
+    </div>
+</header>
+
+<div class="wrap">
+    <main>
+
+        <p class="lede">
+            BrainBox: Offline Puzzle Games ("BrainBox," "we," "our," or "the App") is an offline casual puzzle and arcade gaming collection. Your privacy is paramount: BrainBox is designed from the ground up to operate offline on your device, with no account registration, no remote user profiling,
+            and no server-side tracking of your scores or gameplay.
+        </p>
+
+        <nav class="toc" aria-label="Table of contents">
+            <h2>Contents</h2>
+            <ol>
+                <li><a href="#overview">Overview &amp; Core Philosophy</a></li>
+                <li><a href="#data-stored">Information Stored Locally On Your Device</a></li>
+                <li><a href="#how-stored">How Your Data Is Stored (Offline DataStore)</a></li>
+                <li><a href="#not-collected">What We Do Not Collect</a></li>
+                <li><a href="#advertising">Third-Party Advertising (Google AdMob)</a></li>
+                <li><a href="#permissions">Device Permissions</a></li>
+                <li><a href="#reset">Resetting &amp; Deleting Your Game Data</a></li>
+                <li><a href="#children">Children's &amp; Family Privacy</a></li>
+                <li><a href="#changes">Changes to This Privacy Policy</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ol>
+        </nav>
+
+        <h2 id="overview">1. Overview &amp; Core Philosophy</h2>
+        <p>
+            BrainBox brings together 6 classic games: Block Puzzle, Tic-Tac-Toe, Snakes &amp; Ladders, Memory Match, Retro Snake, and Fruit Slicer. The App functions completely offline without requiring an internet connection. We believe you should be able to enjoy relaxing, brain-challenging games
+            without surrendering personal data or creating unnecessary accounts.
+        </p>
+
+        <h2 id="data-stored">2. Information Stored Locally On Your Device</h2>
+        <p>
+            The App records only the minimal gameplay data required for local progress, high scores, reward coins, and game settings. This information is saved solely in private app storage on your device:
+        </p>
+        <table>
+            <tr>
+                <th>Game / Feature</th>
+                <th>Data Stored Locally</th>
+            </tr>
+            <tr>
+                <td>Total Reward Coins</td>
+                <td>Cumulative in-game coins earned from winning matches and achieving milestones.</td>
+            </tr>
+            <tr>
+                <td>Tic-Tac-Toe</td>
+                <td>High score, selected AI difficulty level (Easy/Medium/Hard), and preferred play mode (vs AI or vs Friend).</td>
+            </tr>
+            <tr>
+                <td>Snakes &amp; Ladders</td>
+                <td>Victory count, selected board difficulty (Easy/Medium/Hard), token avatar selection, and preferred play mode (vs AI or vs Friend).</td>
+            </tr>
+            <tr>
+                <td>Block Puzzle</td>
+                <td>Personal high score and best line-clear combo records.</td>
+            </tr>
+            <tr>
+                <td>Memory Match</td>
+                <td>Best score and level progress.</td>
+            </tr>
+            <tr>
+                <td>Retro Snake</td>
+                <td>Personal high score record.</td>
+            </tr>
+            <tr>
+                <td>Fruit Slicer</td>
+                <td>High score record.</td>
+            </tr>
+            <tr>
+                <td>Audio &amp; Vibration Settings</td>
+                <td>Preferences for sound effects (ON/OFF) and haptic vibration feedback (ON/OFF).</td>
+            </tr>
+        </table>
+
+        <h2 id="how-stored">3. How Your Data Is Stored (Offline DataStore)</h2>
+        <p>
+            All game records, scores, and preferences are stored exclusively on your device using Android Jetpack DataStore. We do not run external servers, user databases, or cloud accounts for this application. If you clear the App's data in Android Settings or uninstall BrainBox, all local scores
+            and coins are permanently removed from your device.
+        </p>
+        <div class="note">
+            <strong>Key Summary:</strong> No user accounts, no cloud sync, no server databases. Your high scores and achievements belong solely to your device.
+        </div>
+
+        <h2 id="not-collected">4. What We Do Not Collect</h2>
+        <p>BrainBox does not collect, record, or transmit:</p>
+        <ul>
+            <li>Personal identifiers such as your real name, email address, or phone number.</li>
+            <li>GPS or precise geographical location data.</li>
+            <li>Contacts, address books, photos, media files, or documents stored on your device.</li>
+            <li>Microphone or camera recordings.</li>
+            <li>Biometric data of any kind.</li>
+        </ul>
+
+        <h2 id="advertising">5. Third-Party Advertising (Google AdMob)</h2>
+        <p>
+            To keep BrainBox free to play for everyone, we use Google Mobile Ads (AdMob) to display non-intrusive banner and interstitial advertisements when an internet connection is present.
+        </p>
+        <p>
+            Google AdMob may collect and process pseudonymous device identifiers (such as the Android Advertising ID), general IP-based approximate location (country/city level), and diagnostic data to serve ads, combat fraud, and measure ad performance in compliance with Google Play Developer
+            Policies.
+        </p>
+        <p>
+            You can control or reset your Android Advertising ID at any time through your device settings:
+            <br>
+            <code>Settings &gt; Google &gt; Ads &gt; Reset Advertising ID / Delete Advertising ID</code>.
+        </p>
+        <p>
+            For more details on how Google processes ad data, please review
+            <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google's Advertising Privacy &amp; Terms</a>.
+        </p>
+
+        <h2 id="permissions">6. Device Permissions</h2>
+        <p>BrainBox uses the following normal Android permissions strictly for the functions described:</p>
+        <ul>
+            <li><strong>INTERNET &amp; ACCESS_NETWORK_STATE</strong>: Used by Google AdMob to load advertisements when online and by the in-app update manager to notify you when a newer version is available on Google Play. Gameplay remains 100% playable even without an internet connection.</li>
+            <li><strong>VIBRATE</strong>: Used to provide tactile haptic feedback during game moves (e.g. slicing fruit, placing marks on the Tic Tac Toe grid, and climbing ladders). You can turn vibration off at any time in the in-game Settings menu.</li>
+            <li><strong>POST_NOTIFICATIONS</strong>: (Optional, Android 13+) Used only if you choose to receive friendly local reminder notifications to keep your brain active. No remote push notifications or promotional marketing alerts are sent.</li>
+        </ul>
+
+        <h2 id="reset">7. Resetting &amp; Deleting Your Game Data</h2>
+        <p>
+            You have full control over all stored game data directly from within the App:
+        </p>
+        <ul>
+            <li><strong>Reset High Scores</strong>: Accessible via the Settings bottom sheet on any game screen. Resets all high score records to zero while preserving your reward coin balance.</li>
+            <li><strong>Reset All Progress</strong>: Reverts all high scores, coin balances, and settings back to initial factory defaults.</li>
+            <li><strong>System Clear Data / Uninstall</strong>: You can also clear app storage via Android system settings or uninstall BrainBox to permanently wipe all local files.</li>
+        </ul>
+
+        <h2 id="children">8. Children's &amp; Family Privacy</h2>
+        <p>
+            BrainBox is designed to be family-friendly and suitable for players of all ages. We comply with the Children's Online Privacy Protection Act (COPPA), the General Data Protection Regulation (GDPR-K), and Google Play Families Policies:
+        </p>
+        <ul>
+            <li>We do not knowingly collect personal information from children under the age of 13.</li>
+            <li>All ads displayed via Google AdMob are configured to comply with Google Play Families and kid-appropriate content guidelines.</li>
+        </ul>
+
+        <h2 id="changes">9. Changes to This Privacy Policy</h2>
+        <p>
+            We may occasionally update this Privacy Policy to reflect app updates, new game features, or changes in legal regulations. When changes occur, the "Last updated" date at the top of this page will be revised. We recommend reviewing this policy periodically.
+        </p>
+
+        <h2 id="contact">10. Contact Us</h2>
+        <div class="card">
+            <p>If you have any questions, feedback, or concerns regarding this Privacy Policy or BrainBox, please contact us:</p>
+            <p>
+                <strong>BrainBox Support Team</strong><br>
+                Email: <a href="mailto:support.pdfusion@gmail.com">support.pdfusion@gmail.com</a>
+            </p>
+        </div>
+
+        <a class="back-top" href="#">↑ Back to top</a>
+    </main>
+
+    <footer>
+        © 2026 BrainBox: Offline Puzzle Games. All rights reserved. &nbsp;·&nbsp;
+        <a href="https://coder-workspace.github.io/remote/brainbox_terms_of_service.html">Terms of Service</a>
+    </footer>
+</div>
+
+</body>
+</html>

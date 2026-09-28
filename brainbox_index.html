@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainBox: Offline Puzzle Games - Your All-In-One Arcade & Puzzle Hub</title>
+    <link rel="icon" type="image/svg+xml"
+          href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxwYXRoIGQ9Ik0gMTYwIDM0NSBDIDE2OCAyODAgMTg1IDE4MCAyMTYgMTI1IEMgMjMyIDk2IDI1MiA4MiAyNjggOTYgQyAyODYgMTEyIDI4NCAxNTAgMjY4IDE5NSBDIDI1MCAyNDIgMjE1IDI2OCAxODAgMjc4IEMgMjM1IDI2MCAyOTggMjYyIDM0MiAyOTIgQyAzODIgMzIwIDM4OCAzNjggMzY2IDQwOCBDIDMzOCA0NTggMjYwIDQ1OCAxOTUgNDM1IEMgMTcwIDQyNCAxNTIgNDAwIDE2MCAzNjgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZCQkYyNCIgc3Ryb2tlLXdpZHRoPSI0NCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPg==">
+    <style>
+        :root{
+          --bg:#0B0F19;
+          --primary:#F59E0B;
+          --primary-glow:#FBBF24;
+          --secondary:#6366F1;
+          --tertiary:#1E293B;
+          --surface:#161E2E;
+          --surface-elevated:#1F293D;
+          --on-primary:#000000;
+          --on-bg:#F8FAFC;
+          --on-surface:#F8FAFC;
+          --muted:#94A3B8;
+          --border:#243048;
+          --highlight:#2A1D0B;
+          --highlight-border:#D97706;
+          --cyan:#06B6D4;
+          --pink:#EC4899;
+          --green:#22C55E;
+        }
+
+        *{box-sizing:border-box;}
+        html,body{margin:0;padding:0;}
+
+        body{
+          background:var(--bg);
+          color:var(--on-bg);
+          font-family:"Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+          line-height:1.65;
+          -webkit-font-smoothing:antialiased;
+        }
+
+        a{color:var(--primary); text-decoration:none; transition:color 0.2s ease;}
+        a:hover{color:var(--primary-glow); text-decoration:underline;}
+        a:focus-visible, button:focus-visible{outline:3px solid var(--secondary); outline-offset:2px;}
+
+        .wrap{
+          max-width:1040px;
+          margin:0 auto;
+          padding:0 24px 80px;
+        }
+
+        /* Header */
+        header.top{
+          background:linear-gradient(180deg, rgba(30, 41, 59, 0.85) 0%, var(--bg) 100%);
+          border-bottom:1px solid var(--border);
+          backdrop-filter:blur(8px);
+        }
+
+        .top-inner{
+          max-width:1040px;
+          margin:0 auto;
+          padding:32px 24px 28px;
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+          flex-wrap:wrap;
+          gap:18px;
+        }
+
+        .brand{
+          display:flex;
+          align-items:center;
+          gap:16px;
+        }
+
+        .logo-badge{
+          width:60px;
+          height:60px;
+          border-radius:16px;
+          overflow:hidden;
+          flex-shrink:0;
+          background:#000000;
+          border:1.5.dp solid var(--border);
+          box-shadow:0 4px 18px rgba(245, 158, 11, 0.2);
+          display:flex;
+          align-items:center;
+          justify-content:center;
+        }
+        .logo-badge img{
+          width:100%;
+          height:100%;
+          object-fit:cover;
+          display:block;
+        }
+        .logo-fallback{
+          font-family:cursive, "Brush Script MT", sans-serif;
+          font-size:38px;
+          font-weight:bold;
+          color:#F59E0B;
+          user-select:none;
+        }
+
+        .brand-text .app-name{
+          font-size:1.45rem;
+          font-weight:800;
+          color:var(--on-bg);
+          letter-spacing:-0.01em;
+        }
+        .brand-text .doc-title{
+          font-size:0.92rem;
+          color:var(--primary);
+          font-weight:600;
+          margin-top:2px;
+        }
+
+        nav.top-links{
+          display:flex;
+          gap:20px;
+          font-size:0.93rem;
+          font-weight:600;
+        }
+        nav.top-links a{color:var(--on-bg);}
+        nav.top-links a:hover{color:var(--primary); text-decoration:none;}
+
+        /* Layout */
+        main{padding-top:0;}
+
+        h1{font-size:2.4rem; margin:0 0 14px; letter-spacing:-0.02em; font-weight:800;}
+        h2{
+          font-size:1.5rem;
+          margin:0 0 20px;
+          color:var(--on-bg);
+          border-left:4px solid var(--primary);
+          padding-left:14px;
+          font-weight:700;
+        }
+        h3{font-size:1.15rem; margin:0 0 8px; color:var(--on-bg); font-weight:700;}
+        p{margin:0 0 14px;}
+        ul{margin:0 0 14px; padding-left:22px;}
+        li{margin-bottom:6px;}
+
+        .lede{
+          font-size:1.12rem;
+          color:var(--muted);
+          max-width:640px;
+        }
+
+        /* Hero */
+        .hero{
+          padding:56px 0 44px;
+          display:flex;
+          align-items:center;
+          gap:40px;
+          flex-wrap:wrap;
+        }
+        .hero-text{flex:1 1 380px;}
+        .hero-art{
+          flex:0 0 auto;
+          width:160px;
+          height:160px;
+          border-radius:32px;
+          background:radial-gradient(circle at 35% 35%, #1F293D, #000000 80%);
+          border:2px solid rgba(245, 158, 11, 0.4);
+          box-shadow:0 12px 36px rgba(245, 158, 11, 0.25);
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          overflow:hidden;
+        }
+        .hero-art img{
+          width:100%;
+          height:100%;
+          object-fit:cover;
+        }
+
+        .pill-row{display:flex; gap:10px; flex-wrap:wrap; margin:20px 0 0;}
+
+        .pill{
+          display:inline-block;
+          background:var(--surface-elevated);
+          color:var(--primary);
+          font-size:0.78rem;
+          font-weight:700;
+          padding:6px 14px;
+          border-radius:999px;
+          letter-spacing:0.02em;
+          text-transform:uppercase;
+          border:1px solid var(--border);
+        }
+        .pill.neon-cyan{color:var(--cyan); border-color:rgba(6, 182, 212, 0.4);}
+        .pill.neon-pink{color:var(--pink); border-color:rgba(236, 72, 153, 0.4);}
+
+        /* Sections */
+        section{margin:54px 0;}
+
+        /* Feature grid */
+        .feature-grid{
+          display:grid;
+          grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+          gap:20px;
+        }
+
+        .feature-card{
+          background:var(--surface);
+          border:1px solid var(--border);
+          border-radius:16px;
+          padding:24px;
+          transition:transform 0.2s ease, border-color 0.2s ease;
+        }
+        .feature-card:hover{
+          transform:translateY(-3px);
+          border-color:rgba(245, 158, 11, 0.4);
+        }
+        .feature-card .icon{
+          width:46px;
+          height:46px;
+          border-radius:12px;
+          background:var(--surface-elevated);
+          border:1px solid var(--border);
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          font-size:1.4rem;
+          margin-bottom:14px;
+        }
+        .feature-card p{margin:0; color:var(--muted); font-size:0.95rem; line-height:1.55;}
+        .feature-card .mode-tag{
+          display:inline-block;
+          margin-top:12px;
+          font-size:0.75rem;
+          font-weight:700;
+          color:var(--primary);
+          background:rgba(245, 158, 11, 0.12);
+          border:1px solid rgba(245, 158, 11, 0.25);
+          padding:3px 8px;
+          border-radius:6px;
+        }
+
+        /* Dual Player & AI Highlight */
+        .highlight-card{
+          background:linear-gradient(135deg, var(--surface) 0%, #1a1630 100%);
+          border:1px solid rgba(99, 102, 241, 0.4);
+          border-radius:20px;
+          padding:32px 28px;
+          display:flex;
+          align-items:center;
+          gap:26px;
+          flex-wrap:wrap;
+        }
+        .highlight-card .icon-badge{
+          width:68px;
+          height:68px;
+          flex-shrink:0;
+          border-radius:20px;
+          background:rgba(99, 102, 241, 0.15);
+          border:1.5px solid rgba(99, 102, 241, 0.4);
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          font-size:2rem;
+        }
+        .highlight-card .content{flex:1 1 340px;}
+        .highlight-tag{
+          display:inline-block;
+          background:rgba(99, 102, 241, 0.2);
+          border:1px solid rgba(99, 102, 241, 0.5);
+          border-radius:999px;
+          padding:4px 14px;
+          font-weight:700;
+          font-size:0.78rem;
+          letter-spacing:0.03em;
+          text-transform:uppercase;
+          color:#A5B4FC;
+          margin-bottom:10px;
+        }
+        .game-chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px;}
+        .game-chip{
+          font-size:0.8rem;
+          color:var(--on-bg);
+          background:var(--surface-elevated);
+          border:1px solid var(--border);
+          border-radius:999px;
+          padding:5px 12px;
+        }
+
+        /* Privacy Strip */
+        .privacy-strip{
+          background:var(--surface);
+          border:1px solid var(--border);
+          border-radius:16px;
+          padding:28px;
+        }
+        .privacy-strip ul{
+          display:grid;
+          grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+          gap:12px 20px;
+          margin:0;
+          padding-left:0;
+          list-style:none;
+        }
+        .privacy-strip li{
+          margin:0;
+          padding-left:26px;
+          position:relative;
+          color:var(--on-bg);
+          font-size:0.95rem;
+        }
+        .privacy-strip li::before{
+          content:"\2713";
+          position:absolute;
+          left:0;
+          top:0;
+          color:var(--primary);
+          font-weight:800;
+        }
+
+        .note{
+          background:var(--surface-elevated);
+          border-left:4px solid var(--primary);
+          border-radius:10px;
+          padding:16px 20px;
+          margin:22px 0;
+          font-size:0.95rem;
+          color:var(--muted);
+        }
+        .note strong{color:var(--on-bg);}
+
+        footer{
+          border-top:1px solid var(--border);
+          margin-top:54px;
+          padding-top:28px;
+          font-size:0.88rem;
+          color:var(--muted);
+          text-align:center;
+        }
+
+        @media (max-width:640px){
+          .top-inner{padding:24px 18px; gap:14px;}
+          .logo-badge{width:50px;height:50px;border-radius:13px;}
+          h1{font-size:1.85rem;}
+          h2{font-size:1.25rem;}
+          .wrap{padding:0 18px 60px;}
+          .hero{padding:36px 0 28px;}
+          .hero-art{width:120px;height:120px;}
+          .highlight-card{padding:22px 20px;}
+        }
+
+        html{scroll-behavior:smooth;}
+    </style>
+</head>
+<body>
+
+<header class="top">
+    <div class="top-inner">
+        <div class="brand">
+            <div class="logo-badge">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxwYXRoIGQ9Ik0gMTYwIDM0NSBDIDE2OCAyODAgMTg1IDE4MCAyMTYgMTI1IEMgMjMyIDk2IDI1MiA4MiAyNjggOTYgQyAyODYgMTEyIDI4NCAxNTAgMjY4IDE5NSBDIDI1MCAyNDIgMjE1IDI2OCAxODAgMjc4IEMgMjM1IDI2MCAyOTggMjYyIDM0MiAyOTIgQyAzODIgMzIwIDM4OCAzNjggMzY2IDQwOCBDIDMzOCA0NTggMjYwIDQ1OCAxOTUgNDM1IEMgMTcwIDQyNCAxNTIgNDAwIDE2MCAzNjgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZCQkYyNCIgc3Ryb2tlLXdpZHRoPSI0NCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPg=="
+                     alt="BrainBox Logo">
+            </div>
+            <div class="brand-text">
+                <div class="app-name">BrainBox</div>
+                <div class="doc-title">Offline Puzzle Games</div>
+            </div>
+        </div>
+        <nav class="top-links">
+            <a href="https://coder-workspace.github.io/remote/brainbox_privacy_policy.html">Privacy Policy</a>
+            <a href="https://coder-workspace.github.io/remote/brainbox_terms_of_service.html">Terms of Service</a>
+        </nav>
+    </div>
+</header>
+
+<div class="wrap">
+    <main>
+
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Classic Puzzles & Board Games. 100% Offline.</h1>
+                <p class="lede">
+                    BrainBox: Offline Puzzle Games brings together your favorite timeless brain teasers and arcade classics in one sleek app. Play solo against smart bots or enjoy 2-player pass & play matches with a friend beside you. No Wi-Fi, no mobile data, and no account needed.
+                </p>
+                <div class="pill-row">
+                    <span class="pill">100% Offline Play</span>
+                    <span class="pill neon-cyan">Play vs AI or Friend</span>
+                    <span class="pill neon-pink">No Wi-Fi Needed</span>
+                    <span class="pill">No Login Required</span>
+                </div>
+            </div>
+            <div class="hero-art">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxwYXRoIGQ9Ik0gMTYwIDM0NSBDIDE2OCAyODAgMTg1IDE4MCAyMTYgMTI1IEMgMjMyIDk2IDI1MiA4MiAyNjggOTYgQyAyODYgMTEyIDI4NCAxNTAgMjY4IDE5NSBDIDI1MCAyNDIgMjE1IDI2OCAxODAgMjc4IEMgMjM1IDI2MCAyOTggMjYyIDM0MiAyOTIgQyAzODIgMzIwIDM4OCAzNjggMzY2IDQwOCBDIDMzOCA0NTggMjYwIDQ1OCAxOTUgNDM1IEMgMTcwIDQyNCAxNTIgNDAwIDE2MCAzNjgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZCQkYyNCIgc3Ryb2tlLXdpZHRoPSI0NCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPg=="
+                     alt="BrainBox App Art">
+            </div>
+        </section>
+
+        <section id="features">
+            <h2>6 Games in 1 Brain Hub</h2>
+            <div class="feature-grid">
+
+                <div class="feature-card">
+                    <div class="icon">🧩</div>
+                    <h3>Block Puzzle (Grid Master)</h3>
+                    <p>Drop vibrant geometric blocks onto a 10x10 grid. Complete horizontal and vertical rows to trigger satisfying multi-line clears and combo blasts.</p>
+                    <span class="mode-tag">Endless Logic Mode</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">❌⭕</div>
+                    <h3>Tic Tac Toe (XO Challenge)</h3>
+                    <p>Cyberpunk neon 3x3 strategy board. Choose from Easy, Medium, or Hard AI bots, or pass & play with a friend on the same screen with full move-undo support.</p>
+                    <span class="mode-tag">vs AI • vs Friend (Pass & Play)</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">🎲</div>
+                    <h3>Snakes & Ladders (Board Classic)</h3>
+                    <p>Authentic 100-tile board game with realistic 3D dice rolling, climbing ladders, and sneaky snake slides. Customize your token avatar and play solo or with a friend.</p>
+                    <span class="mode-tag">vs AI • vs Friend • 3 Board Difficulties</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">🍓</div>
+                    <h3>Memory Match (Fruit Orchard)</h3>
+                    <p>Flip cards, memorize fruit locations, and find every matching pair before moves expire. Great for visual memory, focus, and concentration.</p>
+                    <span class="mode-tag">Brain Training & Focus</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">🐍</div>
+                    <h3>Retro Snake (Arcade Classic)</h3>
+                    <p>Classic 80s handheld nostalgia. Guide your snake, eat juicy fruit, grow longer, and avoid walls or tail crashes with ultra-responsive directional controls.</p>
+                    <span class="mode-tag">Speed & Reflex Challenge</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="icon">🍉</div>
+                    <h3>Fruit Slicer (Juicy Slash)</h3>
+                    <p>Fast-paced arcade slashing action! Swipe your finger across the blade trail to slice flying melons, oranges, and bananas while dodging dangerous bombs.</p>
+                    <span class="mode-tag">Action & Combos</span>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="multiplayer-highlight">
+            <h2>Play Your Way: Solo vs AI or 2-Player Pass & Play</h2>
+            <div class="highlight-card">
+                <div class="icon-badge">👥</div>
+                <div class="content">
+                    <span class="highlight-tag">Local Multiplayer Available</span>
+                    <h3>Challenge the Bot or Share the Screen</h3>
+                    <p>
+                        Never get bored when you're hanging out with a friend or family member. Both Tic Tac Toe and Snakes & Ladders feature built-in <strong>Pass & Play</strong> mode, allowing two players to compete head-to-head on a single screen without needing a second device or internet
+                        connection.
+                    </p>
+                    <div class="game-chips">
+                        <span class="game-chip">🤖 Smart Bot AI</span>
+                        <span class="game-chip">👥 2-Player Pass & Play</span>
+                        <span class="game-chip">🪙 Earn Reward Coins</span>
+                        <span class="game-chip">🦊 Unlockable Avatars</span>
+                        <span class="game-chip">📳 Haptic Touch Feedback</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="privacy">
+            <h2>Built Privacy-First</h2>
+            <div class="privacy-strip">
+                <ul>
+                    <li>No account or sign-in required</li>
+                    <li>100% on-device local storage (DataStore)</li>
+                    <li>Zero cloud sync or personal database tracking</li>
+                    <li>Playable completely offline anywhere</li>
+                    <li>No collection of contacts, photos, or GPS locations</li>
+                    <li>Erase high scores and progress anytime from Settings</li>
+                </ul>
+            </div>
+            <div class="note">
+                <strong>Transparency Notice:</strong> BrainBox is a casual arcade and logic game created for fun and mental stimulation. All in-game coins are virtual tokens earned through gameplay and carry no real-world monetary value.
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        © 2026 BrainBox: Offline Puzzle Games. All rights reserved. &nbsp;·&nbsp;
+        <a href="https://coder-workspace.github.io/remote/brainbox_privacy_policy.html">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="https://coder-workspace.github.io/remote/brainbox_terms_of_service.html">Terms of Service</a>
+    </footer>
+</div>
+
+</body>
+</html>
