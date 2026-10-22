@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainBox: Offline Puzzle Games - Terms of Service</title>
+    <link rel="icon" type="image/svg+xml"
+          href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxwYXRoIGQ9Ik0gMTYwIDM0NSBDIDE2OCAyODAgMTg1IDE4MCAyMTYgMTI1IEMgMjMyIDk2IDI1MiA4MiAyNjggOTYgQyAyODYgMTEyIDI4NCAxNTAgMjY4IDE5NSBDIDI1MCAyNDIgMjE1IDI2OCAxODAgMjc4IEMgMjM1IDI2MCAyOTggMjYyIDM0MiAyOTIgQyAzODIgMzIwIDM4OCAzNjggMzY2IDQwOCBDIDMzOCA0NTggMjYwIDQ1OCAxOTUgNDM1IEMgMTcwIDQyNCAxNTIgNDAwIDE2MCAzNjgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZCQkYyNCIgc3Ryb2tlLXdpZHRoPSI0NCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPg==">
+    <style>
+        :root{
+          --bg:#0B0F19;
+          --primary:#F59E0B;
+          --primary-glow:#FBBF24;
+          --secondary:#6366F1;
+          --tertiary:#1E293B;
+          --surface:#161E2E;
+          --surface-elevated:#1F293D;
+          --on-primary:#000000;
+          --on-bg:#F8FAFC;
+          --on-surface:#F8FAFC;
+          --muted:#94A3B8;
+          --border:#243048;
+          --highlight:#2A1D0B;
+          --highlight-border:#D97706;
+          --cyan:#06B6D4;
+          --pink:#EC4899;
+          --green:#22C55E;
+        }
+
+        *{box-sizing:border-box;}
+        html,body{margin:0;padding:0;}
+
+        body{
+          background:var(--bg);
+          color:var(--on-bg);
+          font-family:"Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+          line-height:1.65;
+          -webkit-font-smoothing:antialiased;
+        }
+
+        a{color:var(--primary); text-decoration:none; transition:color 0.2s ease;}
+        a:hover{color:var(--primary-glow); text-decoration:underline;}
+        a:focus-visible, button:focus-visible{outline:3px solid var(--secondary); outline-offset:2px;}
+
+        .wrap{
+          max-width:860px;
+          margin:0 auto;
+          padding:0 24px 80px;
+        }
+
+        /* Header */
+        header.top{
+          background:linear-gradient(180deg, rgba(30, 41, 59, 0.85) 0%, var(--bg) 100%);
+          border-bottom:1px solid var(--border);
+          backdrop-filter:blur(8px);
+        }
+
+        .top-inner{
+          max-width:860px;
+          margin:0 auto;
+          padding:32px 24px 24px;
+          display:flex;
+          align-items:center;
+          gap:18px;
+        }
+
+        .logo-badge{
+          width:60px;
+          height:60px;
+          border-radius:16px;
+          overflow:hidden;
+          flex-shrink:0;
+          background:#000000;
+          border:1.5px solid var(--border);
+          box-shadow:0 4px 18px rgba(245, 158, 11, 0.2);
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          cursor:pointer;
+          text-decoration:none;
+          transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+        .logo-badge:hover{
+          transform:scale(1.06);
+          border-color:var(--primary);
+          box-shadow:0 6px 24px rgba(245, 158, 11, 0.4);
+          text-decoration:none;
+        }
+        .logo-badge:focus-visible{
+          outline:3px solid var(--secondary);
+          outline-offset:2px;
+        }
+        .logo-badge img{
+          width:100%;
+          height:100%;
+          object-fit:cover;
+          display:block;
+        }
+        .logo-fallback{
+          font-family:cursive, "Brush Script MT", sans-serif;
+          font-size:38px;
+          font-weight:bold;
+          color:#F59E0B;
+          user-select:none;
+        }
+
+        .brand-text .app-name{
+          font-size:1.45rem;
+          font-weight:800;
+          color:var(--on-bg);
+          letter-spacing:-0.01em;
+        }
+        .brand-title-link{
+          color:inherit;
+          text-decoration:none;
+          transition:color 0.2s ease;
+        }
+        .brand-title-link:hover{
+          color:var(--primary-glow);
+          text-decoration:none;
+        }
+        .brand-text .doc-title{
+          font-size:0.92rem;
+          color:var(--primary);
+          font-weight:600;
+          margin-top:2px;
+        }
+
+        .meta-line{
+          max-width:860px;
+          margin:0 auto;
+          padding:0 24px 24px;
+          font-size:0.88rem;
+          color:var(--muted);
+        }
+
+        /* Layout */
+        main{padding-top:32px;}
+
+        h1{font-size:2rem; margin:0 0 10px; font-weight:800;}
+        h2{
+          font-size:1.32rem;
+          margin:42px 0 16px;
+          color:var(--on-bg);
+          border-left:4px solid var(--secondary);
+          padding-left:14px;
+          font-weight:700;
+        }
+        h3{font-size:1.08rem; margin:22px 0 8px; color:var(--on-bg); font-weight:700;}
+        p{margin:0 0 14px;}
+        ul, ol{margin:0 0 14px; padding-left:22px;}
+        li{margin-bottom:6px;}
+
+        .lede{font-size:1.06rem; color:var(--muted); line-height:1.7;}
+
+        .card{
+          background:var(--surface);
+          border:1px solid var(--border);
+          border-radius:16px;
+          padding:24px 26px;
+          margin:20px 0;
+        }
+
+        .toc{
+          background:var(--surface);
+          border:1px solid var(--border);
+          border-radius:16px;
+          padding:22px 26px;
+          margin:28px 0 10px;
+        }
+        .toc h2{margin-top:0; border-left:4px solid var(--primary); padding-left:12px;}
+        .toc ol{margin:0; padding-left:22px;}
+        .toc li{margin-bottom:8px;}
+        .toc a{color:var(--on-bg); font-weight:500;}
+        .toc a:hover{color:var(--primary);}
+
+        .note{
+          background:var(--surface-elevated);
+          border-left:4px solid var(--primary);
+          border-radius:10px;
+          padding:16px 20px;
+          margin:20px 0;
+          font-size:0.95rem;
+          color:var(--muted);
+        }
+        .note strong{color:var(--on-bg);}
+
+        .warn{
+          background:rgba(239, 68, 68, 0.12);
+          border-left:4px solid #EF4444;
+          border-radius:10px;
+          padding:16px 20px;
+          margin:20px 0;
+          font-size:0.95rem;
+          color:#FECACA;
+        }
+        .warn strong{color:#FFFFFF;}
+
+        footer{
+          border-top:1px solid var(--border);
+          margin-top:54px;
+          padding-top:28px;
+          font-size:0.88rem;
+          color:var(--muted);
+          text-align:center;
+        }
+
+        .back-top{
+          display:inline-block;
+          margin-top:36px;
+          font-size:0.88rem;
+          color:var(--primary);
+          font-weight:600;
+        }
+
+        @media (max-width:640px){
+          .top-inner{padding:24px 18px 20px; gap:14px;}
+          .logo-badge{width:50px;height:50px;border-radius:13px;}
+          h1{font-size:1.65rem;}
+          h2{font-size:1.18rem;}
+          .wrap{padding:0 18px 60px;}
+          .card, .toc{padding:20px 18px;}
+        }
+
+        html{scroll-behavior:smooth;}
+    </style>
+</head>
+<body>
+
+<header class="top">
+    <div class="top-inner">
+        <a href="https://coder-workspace.github.io/remote/brainbox_index.html" class="logo-badge" title="BrainBox Home" aria-label="BrainBox Home">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMiIgZmlsbD0iIzAwMDAwMCIvPgogIDxwYXRoIGQ9Ik0gMTYwIDM0NSBDIDE2OCAyODAgMTg1IDE4MCAyMTYgMTI1IEMgMjMyIDk2IDI1MiA4MiAyNjggOTYgQyAyODYgMTEyIDI4NCAxNTAgMjY4IDE5NSBDIDI1MCAyNDIgMjE1IDI2OCAxODAgMjc4IEMgMjM1IDI2MCAyOTggMjYyIDM0MiAyOTIgQyAzODIgMzIwIDM4OCAzNjggMzY2IDQwOCBDIDMzOCA0NTggMjYwIDQ1OCAxOTUgNDM1IEMgMTcwIDQyNCAxNTIgNDAwIDE2MCAzNjgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZCQkYyNCIgc3Ryb2tlLXdpZHRoPSI0NCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPg=="
+                 alt="BrainBox Logo">
+        </a>
+        <div class="brand-text">
+            <div class="app-name"><a href="https://coder-workspace.github.io/remote/brainbox_index.html" class="brand-title-link" title="BrainBox Home">BrainBox</a></div>
+            <div class="doc-title">Terms of Service</div>
+        </div>
+    </div>
+    <div class="meta-line">
+        Effective date: <strong>September 28, 2026</strong> &nbsp;·&nbsp; Last updated: <strong>September 28, 2026</strong>
+    </div>
+</header>
+
+<div class="wrap">
+    <main>
+
+        <p class="lede">
+            These Terms of Service ("Terms") constitute a legally binding agreement between you and BrainBox ("we," "our," or "the App") governing your download, installation, and use of the BrainBox: Offline Puzzle Games mobile application. By accessing or playing BrainBox, you agree to comply with
+            and be bound by these Terms.
+        </p>
+
+        <nav class="toc" aria-label="Table of contents">
+            <h2>Contents</h2>
+            <ol>
+                <li><a href="#acceptance">Acceptance of Terms</a></li>
+                <li><a href="#description">Description of Game Services</a></li>
+                <li><a href="#eligibility">Eligibility</a></li>
+                <li><a href="#license">Limited License</a></li>
+                <li><a href="#virtual-coins">Virtual Reward Coins &amp; Tokens</a></li>
+                <li><a href="#in-app-purchases">In-App Purchases (One-Time Lifetime VIP Pass)</a></li>
+                <li><a href="#responsibilities">User Responsibilities &amp; Conduct</a></li>
+                <li><a href="#ip">Intellectual Property Rights</a></li>
+                <li><a href="#privacy">Privacy &amp; Data Storage</a></li>
+                <li><a href="#disclaimers">Disclaimers of Warranties</a></li>
+                <li><a href="#liability">Limitation of Liability</a></li>
+                <li><a href="#termination">Termination</a></li>
+                <li><a href="#law">Governing Law</a></li>
+                <li><a href="#contact">Contact Information</a></li>
+            </ol>
+        </nav>
+
+        <h2 id="acceptance">1. Acceptance of Terms</h2>
+        <p>
+            By downloading, accessing, or playing BrainBox, you acknowledge that you have read, understood, and agreed to be bound by these Terms and our <a href="https://coder-workspace.github.io/remote/brainbox_privacy_policy.html">Privacy Policy</a>. If you do not agree with any portion of these Terms, please do not use or install the App.
+        </p>
+
+        <h2 id="description">2. Description of Game Services</h2>
+        <p>
+            BrainBox is an all-in-one casual gaming application offering offline gameplay across ten classic titles:
+        </p>
+        <ul>
+            <li><strong>Queen</strong>: Logic crown placement puzzle across colored regions, rows, and columns.</li>
+            <li><strong>ZIP</strong>: Sequential number pathfinding puzzle filling every grid cell.</li>
+            <li><strong>Sudoku Master</strong>: Classic 9×9 logic grid puzzle with notes, hints, and 3 difficulty levels.</li>
+            <li><strong>2048 Neon</strong>: Slide-and-merge number strategy puzzle with undo support.</li>
+            <li><strong>Block Puzzle</strong>: 10x10 geometric grid puzzle with multi-line clear combos.</li>
+            <li><strong>Tic Tac Toe</strong>: 3x3 strategy grid with 3 bot AI difficulty levels and 2-Player Pass &amp; Play mode.</li>
+            <li><strong>Snakes &amp; Ladders</strong>: Authentic 100-tile board game with 3D animated dice, interactive obstacles, customizable avatars, and 2-Player Pass &amp; Play mode.</li>
+            <li><strong>Memory Match</strong>: Card-flip memory trainer with fruit icons and score tracking.</li>
+            <li><strong>Retro Snake</strong>: Arcade handheld game with responsive touchscreen controls.</li>
+            <li><strong>Fruit Slicer</strong>: Swipe-action arcade game with slicing combos and hazards.</li>
+        </ul>
+        <p>
+            All core gameplay features function completely offline on your device.
+        </p>
+
+        <h2 id="eligibility">3. Eligibility</h2>
+        <p>
+            BrainBox is family-friendly and intended for players of all ages. If you are under the legal age of majority in your jurisdiction, you represent that your parent or legal guardian has reviewed and agreed to these Terms on your behalf, including before making any optional in-app purchase.
+        </p>
+
+        <h2 id="license">4. Limited License</h2>
+        <p>
+            Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, revocable license to download, install, and run BrainBox solely for your personal, non-commercial entertainment on compatible Android devices that you own or control.
+        </p>
+        <p>
+            You agree not to reverse engineer, decompile, modify, distribute, sell, lease, or create derivative works based on BrainBox without our prior written authorization.
+        </p>
+
+        <h2 id="virtual-coins">5. Virtual Reward Coins &amp; Tokens</h2>
+        <div class="note">
+            <strong>Virtual Currency Notice:</strong> BrainBox includes an in-game virtual coin and reward system.
+        </div>
+        <ul>
+            <li>Virtual coins are earned through gameplay achievements, victories, or optional rewarded advertisements, or unlocked infinitely via the one-time Lifetime VIP Pass.</li>
+            <li>Coins have <strong>no real-world monetary value</strong>, do not constitute personal property, and cannot be redeemed, refunded, or exchanged for real currency, goods, or services.</li>
+            <li>Coins are stored locally in app storage on your device. Resetting your app data or uninstalling the game permanently clears your local virtual coin balance (unless you own the Lifetime VIP Pass, which provides permanent unlimited coins).</li>
+        </ul>
+
+        <h2 id="in-app-purchases">6. In-App Purchases (One-Time Lifetime VIP Pass)</h2>
+        <p>
+            BrainBox offers an optional one-time, non-consumable in-app product: the <strong>Lifetime VIP Pass - Remove Ads &amp; Unlimited Coins</strong>.
+        </p>
+        <div class="card">
+            <h3>What Is Included in the One-Time VIP Pass</h3>
+            <ul>
+                <li><strong>100% Ad-Free Interface</strong>: Permanently removes all banner ads, interstitial ads, and rewarded video ads across every screen in the App.</li>
+                <li><strong>Unlimited Reward Coins (∞)</strong>: Play any game at any time without the 25-coin match entry requirement.</li>
+                <li><strong>Unlimited Free In-Game Hints</strong>: Use hints freely in Queen, ZIP, Sudoku Master, and Memory Match without spending coins.</li>
+                <li><strong>Instant Win Rewards</strong>: Claim match victory points immediately without watching any advertisement.</li>
+            </ul>
+        </div>
+        <h3>Billing, Pricing &amp; Payment Terms (Google Play Policy)</h3>
+        <ul>
+            <li><strong>One-Time Purchase (No Subscription)</strong>: The Lifetime VIP Pass is a single, one-time payment for lifetime access. It is <strong>not</strong> a recurring subscription, and you will never be charged automatic renewal fees.</li>
+            <li><strong>Google Play Billing</strong>: All payments are processed exclusively by Google Play via your linked Google Play Store account at confirmation of purchase. Displayed prices are dynamically fetched from Google Play in your local currency and include applicable taxes as determined by Google Play.</li>
+            <li><strong>Restoring Purchases Across Devices</strong>: Because the Lifetime VIP Pass is a non-consumable one-time product tied to your Google Play account, you can restore your VIP access at no additional cost when reinstalling the App or switching to a new Android device signed into the same Google account (automatically on startup or by tapping <em>"Restore Existing Purchase"</em> on the VIP screen).</li>
+            <li><strong>Refunds &amp; Cancellations</strong>: All in-app purchases are final and subject to <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener">Google Play's Refund Policy</a>. If a purchase is refunded or revoked through Google Play, VIP benefits (ad removal and unlimited coins) will be automatically deactivated on your account.</li>
+        </ul>
+
+        <h2 id="responsibilities">7. User Responsibilities &amp; Conduct</h2>
+        <p>When playing BrainBox, you agree to:</p>
+        <ul>
+            <li>Use the App in a respectful manner in accordance with all applicable laws and regulations.</li>
+            <li>Not attempt to exploit bugs, bypass Google Play Billing verification, or use automated cheats, bots, or memory-editing tools to artificially alter scores, coin counts, or purchase entitlements.</li>
+            <li>Not interfere with, disrupt, or compromise the integrity of the application.</li>
+        </ul>
+
+        <h2 id="ip">8. Intellectual Property Rights</h2>
+        <p>
+            All rights, title, and interest in and to BrainBox - including the BrainBox name, the stylized golden cursive 'B' trademark and logo, custom graphic assets, character avatars, game engines, UI layouts, sound effects, and software code - are owned by us or our licensors and are protected
+            under copyright, trademark, and intellectual property laws.
+        </p>
+
+        <h2 id="privacy">9. Privacy &amp; Data Storage</h2>
+        <p>
+            Your privacy is governed by our <a href="https://coder-workspace.github.io/remote/brainbox_privacy_policy.html">Privacy Policy</a>. BrainBox does not require an online account and stores your high scores, game preferences, and coin balances locally on your device. You are responsible for maintaining your device and backups.
+        </p>
+
+        <h2 id="disclaimers">10. Disclaimers of Warranties</h2>
+        <p>
+            BrainBox is provided on an <strong>"AS IS"</strong> and <strong>"AS AVAILABLE"</strong> basis without warranties of any kind, whether express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, non-infringement, or
+            uninterrupted, bug-free operation.
+        </p>
+
+        <h2 id="liability">11. Limitation of Liability</h2>
+        <p>
+            To the maximum extent permitted by applicable law, neither BrainBox nor its developers shall be liable for any indirect, incidental, special, consequential, or punitive damages, or loss of game progress, scores, or data arising out of your access to, use of, or inability to use the App,
+            even if advised of the possibility of such damages.
+        </p>
+
+        <h2 id="termination">12. Termination</h2>
+        <p>
+            You may terminate these Terms at any time simply by uninstalling the App from your device. We reserve the right to suspend, discontinue, or terminate the App or your license at any time without notice.
+        </p>
+
+        <h2 id="law">13. Governing Law</h2>
+        <p>
+            These Terms shall be governed by and construed in accordance with the laws of <strong>India</strong>, without regard to conflict of law principles. Any dispute arising out of or related to these Terms shall be subject to the exclusive jurisdiction of the competent courts in India.
+        </p>
+
+        <h2 id="contact">14. Contact Information</h2>
+        <div class="card">
+            <p>If you have any questions or inquiries regarding these Terms of Service, please reach out to us:</p>
+            <p>
+                <strong>BrainBox Support Team</strong><br>
+                Email: <a href="mailto:support.pdfusion@gmail.com">support.pdfusion@gmail.com</a>
+            </p>
+        </div>
+
+        <a class="back-top" href="#">↑ Back to top</a>
+    </main>
+
+    <footer>
+        © 2026 BrainBox: Offline Puzzle Games. All rights reserved. &nbsp;·&nbsp;
+        <a href="https://coder-workspace.github.io/remote/brainbox_index.html">Home</a> &nbsp;·&nbsp;
+        <a href="https://coder-workspace.github.io/remote/brainbox_privacy_policy.html">Privacy Policy</a>
+    </footer>
+</div>
+
+</body>
+</html>
